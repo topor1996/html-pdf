@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>A simple, clean, and responsive HTML invoice template</title>
+    
+    <!-- <style>
+    .invoice-box {
+        max-width: 800px;
+        margin: auto;
+        padding: 30px;
+        border: 1px solid #eee;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+        font-size: 16px;
+        line-height: 24px;
+        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        color: #555;
+    }
+    
+    .invoice-box table {
+        width: 100%;
+        line-height: inherit;
+        text-align: left;
+    }
+    
+    .invoice-box table td {
+        padding: 5px;
+        vertical-align: top;
+    }
+    
+    .invoice-box table tr td:nth-child(2) {
+        text-align: right;
+    }
+    
+    .invoice-box table tr.top table td {
+        padding-bottom: 20px;
+    }
+    
+    .invoice-box table tr.top table td.title {
+        font-size: 45px;
+        line-height: 45px;
+        color: #333;
+    }
+    
+    .invoice-box table tr.information table td {
+        padding-bottom: 40px;
+    }
+    
+    .invoice-box table tr.heading td {
+        background: #eee;
+        border-bottom: 1px solid #ddd;
+        font-weight: bold;
+    }
+    
+    .invoice-box table tr.details td {
+        padding-bottom: 20px;
+    }
+    
+    .invoice-box table tr.item td{
+        border-bottom: 1px solid #eee;
+    }
+    
+    .invoice-box table tr.item.last td {
+        border-bottom: none;
+    }
+    
+    .invoice-box table tr.total td:nth-child(2) {
+        border-top: 2px solid #eee;
+        font-weight: bold;
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .invoice-box table tr.top table td {
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+        
+        .invoice-box table tr.information table td {
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+    }
+    
+    /** RTL **/
+    .rtl {
+        direction: rtl;
+        font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    }
+    
+    .rtl table {
+        text-align: right;
+    }
+    
+    .rtl table tr td:nth-child(2) {
+        text-align: left;
+    }
+    </style> -->
+    <link href="../fonts/stylesheet.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./style.css">
+    <script src="./index.js"></script>
+</head>
+
+<body style="font-family: GT Walsheim Pro, Arial, sans-serif; height: 100%; padding: 0; font-size:10px;  margin: 0; line-height: 1.5;">
+    <div>
+        <img src="https://i.yapx.ru/ULz0U.png" alt="" style="position: relative; width: 100%; max-height: 1118px;">
+
+        <div style="width: 722px;height: 1118px; position: absolute; top: 0; padding: 0 35px; ">
+            <div style="padding-left: 68%; padding-top: 6%; line-height: 17px; color: gray; "> <b style="font-size: 24px; font-weight: 200; color: gray;">Invoice from:</b>
+                <br>
+                <b style="margin: 0; font-size: 14px; font-weight: 500; color:darkblue;"><%=company%></b>
+                <br>
+                <b style="font-size:14px;font-weight: normal;"><%=address%></b>
+                <br>
+                <b style="font-size:14px;font-weight: normal;"><%=email%></b>
+                <br>
+                <b style="font-size:14px; font-weight: normal;"><%=tel%></b>
+
+            </div>
+
+            <div style="padding-left: 81%; padding-top: 3.8%; font-size: 20px; line-height: 20px; color: darkblue;">
+                <b><%=number%></b>
+            </div>
+
+            <div style="padding-top: 12px; padding-bottom: 18px; padding-left: 14px; font-size: 14px; color: gray;">
+                <b style="font-size: 14px; font-weight: 700; color: gray;">Bill to:</b> <b style="font-size: 14px; font-weight: 700; color: darkslategray;"><%=billto%></b>
+                <br> <b style="font-size: 14px; font-weight: 400;">Russia, 197022, St. Petersburg,</b>
+                <br> <b style="font-size: 14px; font-weight: 400;">Aptekarskaya emb. 20, office 203</b>
+                <br> <b style="font-size: 14px; font-weight: 400;">Tel. + 7 (812) 335-10-03</b>
+            </div>
+
+
+            <div style="position:absolute; left: 65%; top: 21%; font-size: 14px; line-height: 18px; color: gray;"> <b style="float: right; font-weight: 300;">Invoice date</b>
+                <br>
+                <b style="margin: 0;  font-weight: 500; color:darkblue;">26 Sep 2022</b>
+            </div>
+
+            <div style="position:absolute; left: 79%; top: 21%; font-size: 14px; line-height: 18px; color: gray;"> <b style="font-weight: 300;">Free cancel before
+            </b>
+                <br>
+                <b style="margin: 0;  font-weight: 500; color:darkblue;">03 Oct 2022</b>
+            </div>
+
+            <div>
+                <table width="100%" cellpadding="8px" style="padding-top: 21px; border-collapse: collapse;">
+                    <tr>
+                        <td colspan="2" style="font-size: 16px; font-weight: 400; color: gray; text-align: center;">DATE</td>
+                        <td colspan="2" style=" font-size: 16px; font-weight: 400; color: gray;text-align: center;">ITEM DESCRIPTION</td>
+                        <td colspan="2" style="font-size: 16px; font-weight: 400; color: gray;text-align: center;">PRICE</td>
+                        <td colspan="2" style="font-size: 16px; font-weight: 400; color: gray;text-align: center;">QTY</td>
+                        <td colspan="2" style="font-size: 16px; font-weight: 400; color: gray;text-align: center;">TOTAL</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid lightgrey;">
+                        <td colspan="2" style="font-size: 18px; font-weight: 400; white-space: nowrap; color: gray; text-align: center;"><%=item1[0]%></td>
+                        <td colspan="2" style=" font-size: 18px;font-weight: 400;  color: darkblue; ">
+                            <%=item1[1]%>
+                                <br>
+                                <%=item1[2]%>
+                        </td>
+                        <td colspan="2" style="font-size: 18px;font-weight: 400; white-space: nowrap; color: gray;text-align: center;">$
+                            <%=item1[3]%>
+                        </td>
+                        <td colspan="2" style="font-size: 18px;font-weight: 400; white-space: nowrap; color: gray;text-align: center;">
+                            <%=item1[4]%>
+                        </td>
+                        <td colspan="2" style="font-size: 18px;font-weight: 400; white-space: nowrap; color: darkblue;text-align: center;">$
+                            <%=item1[3]*item1[4]%>
+                        </td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid lightgrey;">
+                        <td colspan="2" style="font-size: 18px; font-weight: 400;white-space: nowrap; color: gray; text-align: center;"><%=item2[0]%></td>
+                        <td colspan="2" style="font-size: 18px;font-weight: 400; color: darkblue;">
+                            <%=item2[1]%>
+                                <br>
+                                <%=item2[2]%>
+                        </td>
+                        <td colspan="2" style="font-size: 18px;font-weight: 400; white-space: nowrap; color: gray;text-align: center;">$
+                            <%=item2[3]%>
+                        </td>
+                        <td colspan="2" style="font-size: 20px;font-weight: 400; white-space: nowrap; color: gray;text-align: center;">
+                            <%=item2[4]%>
+                        </td>
+                        <td colspan="2" style="font-size: 20px;font-weight: 400; white-space: nowrap; color: darkblue;text-align: center;">$
+                            <%=item2[3]*item2[4]%>
+                        </td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid lightgrey;">
+                        <td colspan="2" style="font-size: 18px; font-weight: 400; white-space: nowrap; color: gray; text-align: center;"><%=item3[0]%></td>
+                        <td colspan="2" style=" font-size: 18px;font-weight: 400; color: darkblue;">
+                            <%=item3[1]%>
+                                <br>
+                                <%=item3[2]%>
+                        </td>
+                        <td colspan="2" style="font-size: 18px;font-weight: 400; white-space: nowrap; color: gray;text-align: center;">$
+                            <%=item3[3]%>
+                        </td>
+                        <td colspan="2" style="font-size: 18px;font-weight: 400; white-space: nowrap; color: gray;text-align: center;">
+                            <%=item3[4]%>
+                        </td>
+                        <td colspan="2" style="font-size: 18px;font-weight: 400; white-space: nowrap; color: darkblue;text-align: center;">$
+                            <%=item3[3]*item3[4]%>
+                        </td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid lightgrey;">
+                        <td colspan="2" style="font-size: 18px; font-weight: 400; white-space: nowrap; color: gray; text-align: center;"><%=item4[0]%></td>
+                        <td colspan="2" style=" font-size: 18px;font-weight: 400; color: darkblue;">
+                            <%=item4[1]%>
+                                <br>
+                                <%=item4[2]%>
+                        </td>
+                        <td colspan="2" style="font-size: 18px;font-weight: 400; white-space: nowrap; color: gray;text-align: center;">$
+                            <%=item4[3]%>
+                        </td>
+                        <td colspan="2" style="font-size: 18px;font-weight: 400; white-space: nowrap; color: gray;text-align: center;">
+                            <%=item4[4]%>
+                        </td>
+                        <td colspan="2" style="font-size: 18px;font-weight: 400; white-space: nowrap; color: darkblue;text-align: center;">$
+                            <%=item4[3]*item4[4]%>
+                        </td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid lightgrey;">
+                        <td colspan="2" style="font-size: 18px; font-weight: 400; white-space: nowrap; color: gray; text-align: center;"><%=item5[0]%></td>
+                        <td colspan="2" style=" font-size: 18px;font-weight: 400; color: darkblue;">
+                            <%=item5[1]%>
+                        </td>
+                        <td colspan="2" style="font-size: 18px;font-weight: 400; white-space: nowrap; color: gray;text-align: center;">$
+                            <%=item5[3]%>
+                        </td>
+                        <td colspan="2" style="font-size: 18px;font-weight: 400; white-space: nowrap; color: gray;text-align: center;">
+                            <%=item5[4]%>
+                        </td>
+                        <td colspan="2" style="font-size: 18px;font-weight: 400; white-space: nowrap; color: darkblue;text-align: center;">$
+                            <%=item5[3]*item5[4]%>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div style="position: absolute; bottom: 16%; padding: 0 8px; color: gray;">
+                <b style="padding-right: 83px; font-size: 16px; font-weight: 500;">PAYMENT DETAILS</b>
+                <b style="font-size: 14px; font-weight: 400;">All prices stated in United States Dollars</b>
+            </div>
+
+            <div style="position: absolute; bottom: 3%;">
+                <table cellpadding="0">
+                    <tr>
+                        <td style="text-align: right;"><b style=" font-size: 14px; font-weight: 400; color: gray;">Account USD:</b> </td>
+                        <td><b style="padding-left: 4px; font-size: 14px; font-weight: 700; color: darkblue;"><%=accountusd%></b></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;"><b style="font-size: 14px; font-weight: 400; color: gray;">Account name:</b></td>
+                        <td> <b style="padding-left: 4px;font-size: 14px; font-weight: 400; color: darkblue;"><%=accountname%></b></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;"><b style="font-size: 14px; font-weight: 400; color: gray;">Bank name:</b></td>
+                        <td><b style="padding-left: 4px;font-size: 14px; font-weight: 400; color: darkblue;"><%=bankname%></b></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;"><b style="font-size: 14px; font-weight: 400; color: gray;">Bank address:</b></td>
+                        <td><b style="padding-left: 4px;font-size: 14px; font-weight: 400; color: darkblue;"><%=bankaddress%></b></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;"><b style="font-size: 14px; font-weight: 400; color: gray;">Swift code:</b></td>
+                        <td><b style="padding-left: 4px;font-size: 14px; font-weight: 400; color: darkblue;"><%=swiftcode%></b></td>
+                    </tr>
+
+                </table>
+            </div>
+
+            <div style="position: absolute; bottom: 12.2%; right: 6%">
+                <b style="font-size: 50px; font-weight: 200; color: gray;">$</b>
+                <b style="font-size: 50px; color: darkblue;"><%=item1[3]*item1[4]+item2[3]*item2[4]+item3[3]*item3[4]+item4[3]*item4[4]+item5[3]*item5[4]%></b><b style="font-size: 25px; color: darkblue;">.00</b>
+            </div>
+
+
+            <div style="position:absolute; bottom: 10.2%; right: 8.5%; font-size: 14px; line-height: 18px; color: gray;">
+                <b style="padding-right:18px; font-weight: 300;">Pay before</b>
+                <b style="margin: 0;  font-weight: 500; color:darkblue;"><%=paybefore%></b>
+            </div>
+
+            <div style="position:absolute; bottom: 2%; right: 8%;">
+                <b style="font-size: 40px; font-weight: 400; color: gray;">Thank you</b>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
