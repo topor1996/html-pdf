@@ -1,5 +1,4 @@
 module.exports = {
-  name: "Аида Дроган",
   email: "business@marinabaytravel.sg",
   id: "127001",
   number: "2022-09-1525",
